@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Travel X — Explore Incredible India (Updated)</title>
+<meta name="description" content="Travel X — curated Indian travel deals, student packages, religious tours, route guidance, kiet built with HTML/CSS/JS." />
+
+</head>
+
+<link rel="stylesheet" href="TravelX.css">
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">TX</div>
+    <div>
+      <div style="font-weight:900">Travel X</div>
+      <div class="small">All-India packages · Student deals · Pilgrimages</div>
+    </div>
+  </div>
+
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#packages">Packages</a>
+    <a href="#contact">Contact</a>
+    <button class="cta" onclick="openLogin()">Login</button> <button onclick="openSignup()">Sign Up</button>
+  </nav>
+</header>
+
+<main id="home">
+  <!-- HERO -->
+  <section class="hero" style="background:transparent">
+    <div>
+      <h1>Discover Incredible India — curated packages for every traveler</h1>
+      <p class="lead">All packages are India-based: beaches, mountains, spiritual routes, and special student-friendly offers.</p>
+
+
+      <div class="section">
+        <div class="heading">
+          <h2>Explore by category</h2>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="All" onclick="applyFilter(this)">All</button>
+            <button class="filter-btn" data-filter="India" onclick="applyFilter(this)">India Tourism</button>
+            <button class="filter-btn" data-filter="Student" onclick="applyFilter(this)">Student / Low-cost</button>
+            <button class="filter-btn" data-filter="Religious" onclick="applyFilter(this)">Religious</button>
+            <button class="filter-btn" data-filter="Beach" onclick="applyFilter(this)">Beach</button>
+            <button class="filter-btn" data-filter="Hill Station" onclick="applyFilter(this)">Hill Station</button>
+            <button class="filter-btn" data-filter="Cultural" onclick="applyFilter(this)">Cultural</button>
+            <button class="filter-btn" data-filter="Adventure" onclick="applyFilter(this)">Adventure</button>
+          </div>
+        </div>
+
+        <div class="cards" id="featuredCards">
+          <!-- Featured Indian destinations (all Indian) -->
+          <article class="card" data-category="India">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60" alt="Goa">
+            <h3>Goa — Sun & Sea</h3>
+            <div class="small">Beaches, nightlife and water sports</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+              <div class="tag">Beach</div>
+              <div style="font-weight:900">From ₹8,499</div>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+              <button class="btn" onclick="bookNow('Goa — Sun & Sea')">Book Now</button>
+            </div>
+          </article>
+
+          <article class="card" data-category="India">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1200&q=60" alt="Manali">
+            <h3>Manali — Mountains & Trek</h3>
+            <div class="small">Snow-capped views and adventure</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+              <div class="tag">Hill Station</div>
+              <div style="font-weight:900">From ₹11,999</div>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+              <button class="btn" onclick="bookNow('Manali — Mountains & Trek')">Book Now</button>
+            </div>
+          </article>
+
+          <article class="card" data-category="Religious">
+            <img src="rishikesh.jfif" alt="Rishikesh">
+            <h3>Rishikesh — Yoga & Ganga Aarti</h3>
+            <div class="small">Spiritual retreats and river activities</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+              <div class="tag">Religious</div>
+              <div style="font-weight:900">From ₹6,499</div>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+              <button class="btn" onclick="bookNow('Rishikesh — Yoga & Ganga Aarti')">Book Now</button>
+            </div>
+          </article>
+
+          <article class="card" data-category="Religious">
+            <img src="varanasi.jfif" alt="Varanasi">
+            <h3>Varanasi — Ancient Ghats & Rituals</h3>
+            <div class="small">Witness Ganga Aarti & heritage walks</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+              <div class="tag">Religious</div>
+              <div style="font-weight:900">From ₹7,999</div>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+              <button class="btn" onclick="bookNow('Varanasi — Ancient Ghats & Rituals')">Book Now</button>
+            </div>
+          </article>
+
+          <article class="card" data-category="Adventure">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60" alt="Ladakh">
+            <h3>Ladakh — High-Altitude Magic</h3>
+            <div class="small">Leh, Pangong, Nubra and high passes</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+              <div class="tag">Adventure</div>
+              <div style="font-weight:900">From ₹22,999</div>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+              <button class="btn" onclick="bookNow('Ladakh — High-Altitude Magic')">Book Now</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column promo & quick contact -->
+    <aside class="hero-right" style="display:flex;flex-direction:column;gap:14px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="small">Featured</div>
+            <div style="font-weight:900;font-size:20px">5-Day Goa Student Special</div>
+            <div class="small" style="margin-top:6px">Student price + discount & perks</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:20px;font-weight:900;color:var(--student)">₹9,499</div>
+            <div class="small">Student Fare</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn" onclick="bookNow('Goa Student Special', true)">Book</button>
+          <button class="btn ghost" onclick="viewDetails('Goa Student Special')">View</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Customer Connect</h4>
+        <div class="small">Hotline</div>
+        <div style="font-weight:900">+91 98765 43210</div>
+        <div style="margin-top:8px" class="small">Email</div>
+        <div>help@travelx.india</div>
+        <div style="margin-top:12px">
+          <div class="small">Quick Callback</div>
+          <input id="cbName" placeholder="Your name" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+          <input id="cbPhone" placeholder="+91 9xxxx xxxxx" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+          <div style="text-align:right;margin-top:8px"><button class="btn" onclick="requestCallback()">Request</button></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4>Route Guidance</h4>
+        <div class="small">Get directions in Google Maps</div>
+        <input id="routeFrom" placeholder="Enter origin (e.g., Delhi)" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+        <input id="routeTo" placeholder="Destination (e.g., Varanasi)" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+        <div style="text-align:right;margin-top:8px"><button class="route-btn" onclick="openRoute()">Get Route</button></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- PACKAGES section -->
+  <section id="packages" class="section">
+    <div class="heading">
+      <h2>Packages — India only</h2>
+      <div class="small">Choose category filters to refine choices</div>
+    </div>
+
+    <div class="pkg-grid" id="packagesGrid">
+      <!-- India / regular packages -->
+      <div class="card pkg" data-type="India" data-cat="Beach">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=60" alt="Goa">
+        <h3>5-Day Goa Exclusive</h3>
+        <div class="meta">Flights + 4★ beachfront hotel + breakfast</div>
+        <div style="margin-top:8px">
+          <div class="price">₹12,999 <span class="small">/ person</span></div>
+          <div class="meta">Limited seats • Free cancellation 48 hrs</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('5-Day Goa Exclusive')">Book</button>
+          
+          <button class="btn ghost" onclick="openRouteFor('Goa')">Get Route</button>
+        </div>
+      </div>
+
+      <div class="card pkg" data-type="India" data-cat="Hill Station">
+        <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=60" alt="Manali">
+        <h3>Majestic Manali Getaway — 5 Days</h3>
+        <div class="meta">Hotel, guided trek, local sightseeing</div>
+        <div style="margin-top:8px">
+          <div class="price">₹15,999</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Majestic Manali — 5 Days')">Book</button>
+          <button class="btn ghost" onclick="openRouteFor('Manali')">Get Route</button>
+        </div>
+      </div>
+
+      
+      <div class="card pkg" data-type="Student" data-cat="Cultural">
+        <img src="rajasthan.jfif" alt="Jaipur">
+        <h3>Budget Rajasthan — Student Pack (5 Days)</h3>
+        <div class="meta">Group-friendly, hostel stays & local transit</div>
+        <div style="margin-top:8px">
+          <div class="price">₹9,999</div>
+          <div class="student-price">Student Price: ₹7,499</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Budget Rajasthan — Student Pack', true)">Book (Student)</button>
+         
+          <button class="btn ghost" onclick="applyStudentCode('Budget Rajasthan — Student Pack')">Apply Student Discount</button>
+        </div>
+      </div>
+
+      <div class="card pkg" data-type="Student" data-cat="Beach">
+        <img src="andaman.jfif" alt="Andaman">
+        <h3>Andaman Student Retreat — 5 Days</h3>
+        <div class="meta">Budget-friendly island package, shared dorms option</div>
+        <div style="margin-top:8px">
+          <div class="price">₹19,999</div>
+          <div class="student-price">Student Price: ₹14,999</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Andaman Student Retreat', true)">Book (Student)</button>
+          <button class="btn ghost" onclick="applyStudentCode('Andaman Student Retreat')">Apply Student Discount</button>
+        </div>
+      </div>
+
+      <!-- Religious / Pilgrimage -->
+      <div class="card pkg" data-type="Religious" data-cat="Religious">
+        <img src="vaishnodevi.jfif" alt="Vaishno Devi">
+        <h3>Vaishno Devi Pilgrimage — 3 Days</h3>
+        <div class="meta">Guided yatra & accommodation near base camp</div>
+        <div style="margin-top:8px">
+          <div class="price">₹6,499</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Vaishno Devi Pilgrimage')">Book</button>
+          <button class="btn ghost" onclick="openRouteFor('Katra (Vaishno Devi)')">Get Route</button>
+        </div>
+      </div>
+
+      <div class="card pkg" data-type="Religious" data-cat="Religious">
+        <img src="tirupati.jfif" alt="Tirupati">
+        <h3>Tirupati Balaji Darshan — 2 Days</h3>
+        <div class="meta">Special darshan planning & local stay</div>
+        <div style="margin-top:8px">
+          <div class="price">₹4,999</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Tirupati Balaji Darshan')">Book</button>
+          <button class="btn ghost" onclick="openRouteFor('Tirupati')">Get Route</button>
+        </div>
+      </div>
+
+      <!-- Adventure -->
+      <div class="card pkg" data-type="India" data-cat="Adventure">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=60" alt="Kerala">
+        <h3>Kerala Backwaters & Trek — 5 Days</h3>
+        <div class="meta">Houseboat + light trekking + cultural tours</div>
+        <div style="margin-top:8px">
+          <div class="price">₹18,999</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="bookNow('Kerala Backwaters & Trek')">Book</button>
+          <button class="btn ghost" onclick="openRouteFor('Alleppey (Kerala)')">Get Route</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="heading">
+      <h2>Contact & Support</h2>
+      <div class="small">Better connectivity — chat, callback, hotline</div>
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:320px" class="card">
+        <h3>Contact Form</h3>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div style="margin-top:8px">
+            <label class="small">Name</label><br>
+            <input id="contactName" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+          </div>
+          <div style="margin-top:8px">
+            <label class="small">Email</label><br>
+            <input id="contactEmail" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+          </div>
+          <div style="margin-top:8px">
+            <label class="small">Message</label><br>
+            <textarea id="contactMessage" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" rows="5"></textarea>
+          </div>
+          <div style="margin-top:12px;text-align:right">
+            <button class="btn">Send</button>
+          </div>
+        </form>
+      </div>
+
+      <div style="width:320px" class="card">
+        <h3>Support</h3>
+        <div class="small">Hotline</div>
+        <div style="font-weight:900">+91 98765 43210</div>
+        <div style="margin-top:8px" class="small">Email</div>
+        <div>help@travelx.india</div>
+
+        <div style="margin-top:12px">
+          <h4>Request Callback</h4>
+          <input id="cbName2" placeholder="Name" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+          <input id="cbPhone2" placeholder="Phone" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-top:8px">
+          <div style="text-align:right;margin-top:8px"><button class="btn ghost" onclick="requestCallback2()">Request</button></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © Travel X 2025 — All destinations within India • kiet site (HTML/CSS/JS)
+</footer>
+
+<!-- Discount popup -->
+<div id="popupWrap" class="popup-wrap" aria-live="polite" style="display:block">
+  <div class="popup" id="discountPopup" role="dialog">
+    <div style="flex:0 0 72px">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=200&q=60" alt="offer" style="width:72px;height:72px;border-radius:10px;object-fit:cover">
+    </div>
+    <div>
+      <div style="font-weight:900">Limited Offer — Student & 5-Day Deals</div>
+      <div class="small" style="margin-top:6px">Book selected 5-day packages and apply code <strong>TXIND2000</strong> (₹2,000 off) — students enjoy extra savings.</div>
+      <div style="margin-top:10px;display:flex;gap:8px">
+        <button class="btn" onclick="redeemOffer()">Apply Offer</button>
+        <button class="close" onclick="dismissPopup()">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal-wrap" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" id="modalContent"></div>
+</div>
+
+<!-- Login modal -->
+<div id="loginModal" class="modal-wrap" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" style="max-width:420px">
+    <h3>Login (kiet)</h3>
+    <div class="small">Use kiet credentials or continue as guest</div>
+    <div style="margin-top:12px">
+      <label class="small">Email</label><br>
+      <input id="loginEmail" placeholder="student@kiet" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+    </div>
+    <div style="margin-top:8px">
+      <label class="small">Password</label><br>
+      <input id="loginPassword" type="password" placeholder="student123" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)">
+    </div>
+    <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
+      <button class="btn" onclick="attemptLogin()">Sign in</button>
+      <button class="btn ghost" onclick="closeLogin()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="TravelX.js"></script>
+
+
+<!-- Signup Modal -->
+<div id="signupModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9999">
+  <div style="background:turquoise;width:320px;margin:10% auto;padding:20px;border-radius:8px">
+    <h3>Create Account</h3>
+    <input id="signupName" placeholder="Name" style="width:100%;margin:6px 0">
+    <input id="signupEmail" placeholder="Email" style="width:100%;margin:6px 0">
+    <input id="signupPassword" type="password" placeholder="Password" style="width:100%;margin:6px 0">
+    <button class="cta signup-btn" onclick="doSignup()" style="width:100%;margin-top:10px">Sign Up</button>
+     <!-- <button class="signup-btn" onclick="doSignup()">Sign Up</button> -->
+      <!-- <button onclick="doSignup()"
+style="
+width:100%;
+padding:12px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+">
+Sign Up
+</button> -->
+
+
+    <p style="text-align:center;margin-top:10px">
+      Already have an account?
+      <a href="#" onclick="closeSignup();openLogin()">Login</a>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
